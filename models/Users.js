@@ -1,15 +1,7 @@
-const mongoose = require("mongoose");
-
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-          },
           username: {
             type: String,
             unique: true,
@@ -20,29 +12,25 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             required: [true, "Email required"],
-              validate: {
-                  validator: function(v) {
-                      return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
-                  },
-                  message: (props) => `${props.value} is not a valid email or password`,
-              },
+              match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/]
           },
           thoughts: [
             {
               type: Schema.Types.ObjectId,
-              ref: "Thought",
+              ref: "Thoughts",
             },
           ],
           friends: [
             {
               type: Schema.Types.ObjectId,
-              ref: "User",
+              ref: "Users",
             },
           ],
         },
         {
           toJSON: {
             virtuals: true,
+            getters: true,
           },
           id: false,
         }
@@ -53,6 +41,6 @@ const userSchema = new Schema(
         return this.friends.length;
       });
 
-      const User = mongoose.model("User", userSchema);
+      const Users = mongoose.model("Users", userSchema);
 
 module.exports = Users;

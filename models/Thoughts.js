@@ -1,38 +1,41 @@
-const { Model, DataTypes } = require("mongoose");
+const { Schema, Types } = require("mongoose");
+const reactionSchema = require('./Reactions');
+const formatDate = require('../utils/formatDate');
 
-class Thoughts extends Model {}
-
-Thoughts.init(
+const thoughtSchema = new Schema(
   {
-    thoughts_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    username: {
-      type: DataTypes.String,
-      unique: true,
-      allowNull: false,
-      trim: true
-    },
     thought_text: {
-      type: DataTypes.String,
-      unique: true,
-      allowNull: false,
+      type: String,
+      required: true,
+      minLenth: 1,
+      maxLength: 280
     },
     created_at: {
-        type: DataTypes.String,
-        unique: true,
-        allowNull: false,
+        type: Date,
+        default: Date.now,
+        get: timestamp => formatDate(timestamp)
       },
-      reaction: {
-        type: DataTypes.String,
+      username: {
+        type: String,
         unique: true,
-        allowNull: false,
-      }
+        required: true,
+        trim: true
+      },
+      reactions: [reactionSchema]
     },
+    {
+        toJSON: {
+          getters: true,
+        },
+        id: false,
+      }
 );
+
+thoughtSchema.virtual("reactionCount").get(function(){
+    return this.reactions.length
+})
+
+const Thoughts = model("Thoughts", thoughtSchema)
 
 
 module.exports = Thoughts;

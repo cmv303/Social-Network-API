@@ -97,7 +97,7 @@ const userController = {
   },
 
   //DELTE a friend from a user's friend list
-  removeFriend(req, res) {
+  deleteFriend(req, res) {
     Users.findByIdAndUpdate(
       req.params.userId,
       { $pull: { friends: req.params.friendId } },

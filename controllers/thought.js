@@ -62,7 +62,7 @@ const thoughtController = {
       },
     
       // DELETE Thought by its id
-      removeThought({ params }, res) {
+      deleteThought({ params }, res) {
         Thought.findByIdAndDelete(params.id)
           .then((dbThoughtData) => {
             if (!dbThoughtData) {
@@ -97,7 +97,7 @@ const thoughtController = {
       },
     
       // DELETE reaction from a Thought
-      removeReaction({ params }, res) {
+      deleteReaction({ params }, res) {
         Thought.findByIdAndUpdate(
           params.thoughtId,
           { $pull: { reactions: { reactionId: params.reactionId } } },

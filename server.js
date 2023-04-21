@@ -5,10 +5,11 @@ const db = require('./config/connection');
 
 //iniitialize express app
 const app = express();
+console.log("port functions correctly")
 const PORT = process.env.PORT || 3001;
 
 //initializes routes
-const routes = require("./controllers");
+const routes = require('./routes')
 
 //middleware
 app.use(express.json());

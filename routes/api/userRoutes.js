@@ -9,26 +9,25 @@ const {
     deleteFriend
 } = require("../../controllers/user");
 
-
-// GET all users /api/users
+// GET all users 
 router.get('/', getAllUsers);
 
-// GET a single user by ID /api/users/:userId
+// GET a single user by ID 
 router.get('/:userId', getSingleUser);
 
-// POST a new user /api/users
+// POST a new user 
 router.post('/', createUser);
 
-// PUT update a user by ID /api/users/:userId
+// PUT a user by ID 
 router.put('/:userId', updateUser);
 
-// DELETE remove a user by ID /api/users/:userId
+// DELETE a user by ID 
 router.delete('/:userId', deleteUser);
 
-// POST add a friend to a user's friend list /api/users/:userId/friends/:friendId
+// POST a friend to a user's friend list 
 router.post('/:userId/friends/:friendId', addFriend);
 
-// DELETE remove a friend from a user's friend list /api/users/:userId/friends/:friendId
+// DELETE a friend from a user's friend list 
 router.delete('/:userId/friends/:friendId', deleteFriend);
 
 module.exports = router;

@@ -9,14 +9,14 @@ console.log("port functions correctly")
 const PORT = process.env.PORT || 3001;
 
 //initializes routes
-const thoughtControllerRoute = require("./controllers/thought");
-const userControllerRoute = require("./controllers/user");
+const thoughtRoutes = require("./routes/api/thoughtRoutes");
+const userRoutes = require("./routes/api/userRoutes");
 
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/thoughts", thoughtControllerRoute);
-app.use("/api/users", userControllerRoute);
+app.use("api/thoughts", thoughtRoutes);
+app.use("/api/users", userRoutes);
 
 db.once("open", () => {
     app.listen(PORT, () => {

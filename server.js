@@ -9,14 +9,16 @@ console.log("port functions correctly")
 const PORT = process.env.PORT || 3001;
 
 //initializes routes
-const thoughtRoutes = require("./routes/api/thoughtRoutes");
-const userRoutes = require("./routes/api/userRoutes");
+// const thoughtRoutes = require("./routes/api/thoughtRoutes");
+// const userRoutes = require("./routes/api/userRoutes");
+const routes = require('./routes/api/')
 
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("api/thoughts", thoughtRoutes);
-app.use("/api/users", userRoutes);
+// app.use("api/thoughts", thoughtRoutes);
+// app.use("/api/users", userRoutes);
+app.use('api/', routes);
 
 db.once("open", () => {
     app.listen(PORT, () => {

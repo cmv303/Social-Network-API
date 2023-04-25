@@ -10,24 +10,24 @@ const {
 } = require("../../controllers/user");
 
 // GET all users 
-// router.get('/', getAllUsers);
+router.get('/', getAllUsers);
 
 // GET a single user by ID 
-// router.get('/:userId', getSingleUser);
+router.get('/:userId', getSingleUser);
 
 // POST a new user 
-// router.post('/', createUser);
+router.post('/', createUser);
 
 // PUT a user by ID 
-// router.put('/:userId', updateUser);
+router.put('/:userId', updateUser);
 
 // DELETE a user by ID 
-// router.delete('/:userId', deleteUser);
+router.delete('/:userId', deleteUser);
 
 // POST a friend to a user's friend list 
-// router.post('/:userId/friends/:friendId', addFriend);
+router.post('/:userId/friends/:friendId', addFriend);
 
 // DELETE a friend from a user's friend list 
-// router.delete('/:userId/friends/:friendId', deleteFriend);
+router.delete('/:userId/friends/:friendId', deleteFriend);
 
 module.exports = router;

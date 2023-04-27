@@ -21,7 +21,11 @@ Requires `moment`, `mongoose`, `express`, and `.env`
 
 ## Demo
 
-[screenshot here]
+Screenshot of current bug in insomnia
+
+<img width="1409" alt="Screenshot 2023-04-26 at 11 18 36 PM" src="https://user-images.githubusercontent.com/115678318/234751093-d24827c2-d4da-488f-a511-dcc4ebbbb184.png">
+
+
 
 ## Deployment
 

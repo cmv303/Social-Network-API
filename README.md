@@ -26,6 +26,7 @@ Requires `moment`, `mongoose`, `express`, and `.env`
 ## Deployment
 
 To see a walk-through tutorial, click here:
+https://drive.google.com/file/d/1pwZ-hiKmJB1RU3hzWtJ0q0XFyxSNSeHk/view
 
 ## License
 

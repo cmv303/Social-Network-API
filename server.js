@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 //initializes routes
 // const thoughtRoutes = require("./routes/api/thoughtRoutes");
 // const userRoutes = require("./routes/api/userRoutes");
-const routes = require('./routes/api/')
+const routes = require('./routes')
 
 //middleware
 app.use(express.json());

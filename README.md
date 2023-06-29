@@ -1,6 +1,6 @@
 # Social Network API
 
-This application utilizes mongoDB and mongoose to help efficiently store data for a spcial network. Using this helps ensure scalability.
+This application utilizes mongoDB and mongoose to help efficiently store data for a social network. Using this helps ensure scalability.
 
 ## Features
 
